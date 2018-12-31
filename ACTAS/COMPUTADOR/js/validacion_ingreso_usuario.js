@@ -1,5 +1,5 @@
 $(document).ready(function(e) {
-			alert("Debes ingresar una cedula valida");
+			//alert("Debes ingresar una cedula valida");
 	
 	$("#btnEnviarU").click(function() {
 		 if( $("#cedula2").val().length < 8 ) {

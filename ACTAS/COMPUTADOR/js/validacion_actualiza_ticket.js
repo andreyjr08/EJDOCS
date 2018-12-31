@@ -1,15 +1,12 @@
-$(document).ready(function(e) {
+
+$(document).ready(function(e) {(
 
 	$("#btnEnviarT").click(function() {
-		 if( $("#numero").val().length == 0 ) {
-			alert("Debes ingresar un ticket valido");
-			document.frmModal.numero.focus();
-			return false;
-		}else {
+		 if {
 			$.ajax({
-			  url: "../ACTAS/COMPUTADOR/procesos/nuevo_ticket.php",
+			  url: "../ACTAS/COMPUTADOR/procesos/actualizar_ticket.php",
 			  type: 'post',
-			  data: $("#frmModal").serialize(),
+			  data: $("#frmDatosP").serialize(),
 			  dataType: 'json',
 			  success: function(dataType) {
 				if (dataType.res == "si") {

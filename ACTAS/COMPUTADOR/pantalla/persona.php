@@ -4,7 +4,7 @@ require '../clases/funciones.php';
 $usuarios = new funciones();
 $result = $usuarios ->usuarios();
 $result2 = $usuarios ->departamentos();
-
+$result3 = $usuarios ->select_acta2();
 session_start();
 
 ?>
@@ -22,10 +22,10 @@ session_start();
 <form id="frmDatosP" name="frmDatosP" method="post" action="../ACTAS/COMPUTADOR/procesos/insertarP.php">
 	<div class="col-ms-12" id="cargaDeDatos">
 		<div class="jumbotron">
-				<div class="col-lg-12">
-					<label>#CEDULA</label>
+			<div class="col-xs-6 col-md-12 col-lg-12">
+					<label>NUMERO</label>
 					<div class="input-group mb-3">
-  						<input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
+  						<input type="text" name="numero" id="numero" class="form-control" placeholder="Asunto" aria-label="Username" aria-describedby="basic-addon1" value="<?php foreach($result3 as $acta){echo $acta['acta'];}?>" disabled="disabled">
 					</div>
 				</div>
 				
@@ -70,7 +70,7 @@ session_start();
 				</div>
 		
 		</div>
-		</dir>
+		</div>
 	</form>
 <form id="frmModal" name="frmModal" method="post" action="../ACTAS/COMPUTADOR/procesos/ingreso_usuario.php">
 	<!---------INICIO DE MODAL -->

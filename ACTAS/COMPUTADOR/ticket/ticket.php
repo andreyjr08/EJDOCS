@@ -2,39 +2,41 @@
 use clases_pdo\funciones;
 require '../clases/funciones.php';
 $usuarios = new funciones();
-$result = $usuarios ->usuarios();
-$result2 = $usuarios ->departamentos();
-$result3 = $usuarios ->select_acta2();
+$result = $usuarios ->ticket();
+
 
 session_start();
-
 ?>
 
-<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacionP.j" ></script>
+
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_ticket.js" ></script>
-<form id="frmDatosP" name="frmDatosP" method="post" action="../ACTAS/COMPUTADOR/procesos/nuevo_icket.php">
+<form id="frmDatosP" name="frmDatosP" method="post" action="../ACTAS/COMPUTADOR/procesos/actualizar_ticket.php">
 		
 				<div class="col-xs-12 col-md-12 col-lg-12">
 					<!---------BOTON DE MODAL-->
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+					<button type="button" class="btn btn-primary adicionar" data-toggle="modal" data-target="#myModal">
   					<i class="fas fa-plus"></i>
 					</button>
 				</div>
 	<div class="col-ms-12" id="cargaDeDatos">
 		
-				<!--<?php foreach($result as $usuarios){ ?>
-                    			<option value="<?php echo $usuarios['CEDULA']; ?>"><?php echo $usuarios['NOMBRES']." ".$usuarios['APELLIDOS']; ?>
-                    			</option> 
-    						<?php } ?>-->
+				<?php foreach($result as $ticket){ 
+					$variable= $ticket['STATUS'];
+					if ($variable==0) {
+						
+					}
+					?>
+
 				<div class="col-xs-6 col-md-4 col-lg-3 div_primario">
 					<label>NUMERO</label>
 					<div class="div_secundario">
-						<label>23423-32322</label>
+						<input type="text" name="numeroTikect" class="numeroTikect" value="<?php echo $ticket['NUMERO']; ?>" readonly="readonly"/>
 					</div>
-					<div class="col-xs-12 col-md-12 col-lg-12 center-block btn btn-secondary">
-					USADO
+					<div class="">
+					<input type="submit" value="USADO" name="BtnEnviarInfo" class="col-xs-12 col-md-12 col-lg-12 center-block btn btn-secondary">
 					</div>
 				</div>
+    			<?php } ?>
 
 	</div>
 </form>

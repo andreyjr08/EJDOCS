@@ -31,6 +31,8 @@ class funciones{
     private $marcaPant;
 //-------ticket----- 
     private $numeroT;
+    private $numeroTicket;
+
 
      public function __construct(){
         $this->pdo = new config();
@@ -155,7 +157,7 @@ class funciones{
         $result = $this->InsertarTicket();
         return $result;
     }
-    //consulta sql para insertar nueva pantalla
+    //consulta sql para insertar nuevo ticket
      private function InsertarTicket(){
         $resu = array();
         $pdo = $this->pdo;
@@ -163,6 +165,17 @@ class funciones{
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
             'numeroT' => $this->NUMERO,   
+            ]);
+            return $result;
+        }
+    //consulta sql para insertar nuevo ticket
+     public function actualizarT($numeroTicket){
+        $resu = array();
+        $pdo = $this->pdo;
+        $sql = "UPDATE ticket SET STATUS =1 WHERE NUMERO= '.$numeroTicket.'";
+        $query = $pdo->prepare($sql);
+        $result = $query->execute([//$result = $query->execute([
+     
             ]);
             return $result;
         }
@@ -255,6 +268,14 @@ class funciones{
     public function select_acta2(){
         $pdo = $this->pdo;
         $sql = "SELECT MAX(ID)+1 AS acta FROM actas";
+        $query = $pdo->query($sql);
+        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $queryResult;
+        
+    }
+    public function ticket(){
+        $pdo = $this->pdo;
+        $sql = "SELECT *FROM ticket";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;

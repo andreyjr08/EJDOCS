@@ -4,6 +4,10 @@
 .container-fluid{
 	margin-left: 5%;
 }
+.numeroTikect{
+	pointer-events:none;
+	 border: 0;
+}
 .hed{
 	background-color: #337ab7 !important;
 	padding-right: 0%;
