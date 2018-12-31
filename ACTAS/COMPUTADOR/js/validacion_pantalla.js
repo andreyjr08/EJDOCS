@@ -4,9 +4,10 @@ $(document).ready(function(e) {
 		 if( $("#serial").val().length == 0 ) {
 			alert("Debes ingresar el serial del computador");
 			document.frmDatos.serial.focus();
+			return false;
 		}else {
 			$.ajax({
-			  url: "../ACTAS/COMPUTADOR/procesos/insertar_pantalla.php",
+			  url: "../ACTAS/COMPUTADOR/procesos_pantalla/insertar_pantalla.php",
 			  type: 'post',
 			  data: $("#frmDatos").serialize(),
 			  dataType: 'json',

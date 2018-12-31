@@ -10,20 +10,22 @@ session_start();
 ?>
 
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_persona_pantalla.js" ></script>
-<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_ingreso_usuario.js" ></script>
+<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_ingreso_usuario_panta.js" ></script>
 <div class="box-header">
-   <div class="pull-right box-tools">
-       <button class="btn btn-danger btn-sm btncerrar_nueva_acta_computador2" data-toggle="tooltip" title="Cerrar nueva acta"><i class="fas fa-times"></i></button>
-   </div>
+	<div class="pull-right box-tools">
+		<button type="button" class="btn btn-danger btncerrar_nueva_acta_computador2">
+			<i class="fas fa-window-close"></i>
+		</button>
+
+	</div>
 </div>
-<form id="frmDatosP" name="frmDatosP" method="post" action="../ACTAS/COMPUTADOR/procesos_pantalla/insertarP.php">
+<form id="frmDatosP" name="frmDatosP" method="post" action="../ACTAS/COMPUTADOR/procesos/insertarP.php">
 	<div class="col-ms-12" id="cargaDeDatos">
 		<div class="jumbotron">
-			<div class="row">
 				<div class="col-lg-12">
 					<label>#CEDULA</label>
 					<div class="input-group mb-3">
-  						<input type="number" name="cedulaP" id="cedula" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
+  						<input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
 					</div>
 				</div>
 				
@@ -49,13 +51,13 @@ session_start();
 				<div class="col-lg-12">
 					<label>DE</label>
 					<div class="input-group mb-2">
-  						<input type="text" name="deP" id="deP" value="<?php  if(isset($_SESSION['departamento'])) echo $_SESSION['departamento'];?>" class="form-control" placeholder="De" aria-label="Username" aria-describedby="basic-addon1">
+  						<input type="text" name="de" id="de" value="<?php  if(isset($_SESSION['departamento'])) echo $_SESSION['departamento'];?>" class="form-control" placeholder="De" aria-label="Username" aria-describedby="basic-addon1">
 					</div>
 				</div>
 				<div class="col-lg-12">
 					<label>ASUNTO</label>
 					<div class="input-group mb-3">
-  						<input type="text" name="asuntoP" id="asuntoP" class="form-control" placeholder="Asunto" aria-label="Username" aria-describedby="basic-addon1">
+  						<input type="text" name="asunto" id="asunto" class="form-control" placeholder="Asunto" aria-label="Username" aria-describedby="basic-addon1">
 					</div>
 					
 				</div>
@@ -66,7 +68,7 @@ session_start();
 					<!--<a class="btn btn-primary fas fa-check-square fa-3x btn-responsive" 
 					type="submit" id="btnEnviarP"></a>-->
 				</div>
-		</div>
+		
 		</div>
 		</dir>
 	</form>
@@ -94,7 +96,7 @@ session_start();
         <div class="col-lg-12">
 			<label>NOMBRES</label>
 				<div class="input-group mb-3">
-  					<input type="text" name="nombres" id="nombresP" class="form-control" placeholder="nombres" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="text" name="nombres" id="nombres" class="form-control" placeholder="nombres" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 		</div>
       </div>
@@ -102,7 +104,7 @@ session_start();
         <div class="col-lg-12">
 			<label>APELLIDOS</label>
 				<div class="input-group mb-3">
-  					<input type="text" name="apellidos" id="apellidosP" class="form-control" placeholder="Apellidos" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Apellidos" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 		</div>
       </div>

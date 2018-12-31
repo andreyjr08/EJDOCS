@@ -9,8 +9,9 @@ session_start();
 
 ?>
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_pantalla.js" ></script>
+<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_marca_panta.js" ></script>
 <div class="panel-body">
-<form class="form-horizontal" id="frmDatos" name="frmDatos" method="post" action="../ACTAS/COMPUTADOR/procesos/insertar_pantalla.php">
+<form class="form-horizontal" id="frmDatos" name="frmDatos" method="post" action="../ACTAS/COMPUTADOR/procesos_pantalla/insertar_pantalla.php">
 	<div id="cargaDeDatos">
 		<div class="jumbotron">
 			<div class="col-ms-12">
@@ -29,6 +30,10 @@ session_start();
     						<?php } ?>
 						  </select>
 						</div>
+																		<!---------BOTON DE MODAL-->
+<button type="button" class="btn btn-primary col-lg-1 h my-auto" data-toggle="modal" data-target="#myModalPant">
+  <i class="fas fa-user-plus fa-1x"></i>
+</button>
 				</div>
 		
 				<div class="col-ms-12">
@@ -49,6 +54,41 @@ session_start();
 		</div>		
 		
 	</div>
-	
 </form>
+<!---------INICIO DE MODAL -->
+<!-- The Modal -->
+<form id="frmModal" name="frmModal" method="post" action="../ACTAS/COMPUTADOR/procesos/ingreso_marca_panta.php">
+<div class="modal" id="myModalPant">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Crear Nuevo Usuario</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        
+      
+      <div class="modal-body">
+        <div class="col-lg-12">
+			<label>MARCA</label>
+				<div class="input-group mb-3">
+  					<input type="text" name="marcaPant" id="marcaPant" class="form-control" placeholder="MARCA" aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+		</div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" id="btnEnviarPant" value="Crear">
+      </div>
+
+    </div>
+  </div>
+</div>
+</div> 	
+</form>
+			<!-----------FIN DE MODAL-->
+
 </div>

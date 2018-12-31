@@ -3,7 +3,7 @@ require_once '../clases/funciones.php';
 use clases_pdo\funciones;
 $usuarios = new funciones();
 
-$result = $usuarios ->select_persons();
+$result = $usuarios ->select_pantallas();
 ?>
 
 <link rel="stylesheet" href="../../CSS/bootstrap/font-awesome.min.css">
@@ -17,10 +17,10 @@ $result = $usuarios ->select_persons();
         </button>
     </div>
     <div class="pull-right box-tools col-md-11 col-lg-11 col-xs-11">
-        <button class="btn btn-primary btn-sm" id="nuevo_computador" data-toggle="tooltip" title="Acta computador">
+        <button class="btn btn-primary btn-sm" id="nuevo_computador_lista" data-toggle="tooltip" title="Acta computador">
            <i class="fas fa-desktop"></i>
         </button>
-        <button class="btn btn-primary btn-sm" id="nueva_pantalla" data-toggle="tooltip" title="Acta pantalla">
+        <button class="btn btn-primary btn-sm" id="nueva_pantalla_lista" data-toggle="tooltip" title="Acta pantalla">
             <i class="fas fa-tv"></i>
         </button>
         <button class="btn btn-primary btn-sm" id="nuevo_celular" data-toggle="tooltip" title="Acta celular">
@@ -42,7 +42,6 @@ $result = $usuarios ->select_persons();
             <td>DE</td>
             <td>ASUNTO</td>
             <td>PANTALLA</td>
-            <td>OPCION</td>
             <td>REPORTE</td>
         </tr>
     </thead>
@@ -56,11 +55,9 @@ $result = $usuarios ->select_persons();
                 <td><?php echo $usuarios['NOMBRES'], $usuarios['APELLIDOS'] ?></td>
                 <td><?php echo $usuarios['DE'] ?></td>
                 <td><?php echo $usuarios['ASUNTO'] ?></td>
-                <td><?php echo $usuarios['marca'] ?></td>
-                <!-- BOTON EDITAR-->
-                <td><a href="computador/datos_actu.php?id=<?php echo $usuarios['ID']?>" class="btn btn-primary" id="btnActualizar"><i class="fas fa-pencil-alt fa-1x" aria-hidden="false"></i></a></td>
+                <td><?php echo $usuarios['MARCA'] ?></td>
                 <!--BOTON REPORTE-->
-                <td><a href="../ACTAS/COMPUTADOR/reporte/plantilla.php?id=<?php echo $usuarios['ID']?>" target="_Blank" class= "btn btn-danger fas fa-file-pdf fa-1x"></a></td>
+                <td><a href="../ACTAS/COMPUTADOR/reporte_pantalla/plantilla.php?id=<?php echo $usuarios['ID']?>" target="_Blank" class= "btn btn-danger fas fa-file-pdf fa-1x"></a></td>
             </tr>
             <?php
             }

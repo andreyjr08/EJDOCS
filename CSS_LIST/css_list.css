@@ -4,7 +4,7 @@ ul#menu-v, #menu-v ul
     width:150px; /* Main Menu width */
     border:1px solid rgba(190,190,190,0.3);
     list-style:none; margin:0; padding:0;
-    background: #1A5276;
+    background: #337ab7;
     z-index:9;
     margin-top: 10%;
 }     
@@ -66,7 +66,7 @@ ul#menu-v, #menu-v ul
     position:absolute;
     display:none;
     left:100%;
-    top:200%; transform:translateY(-50%);
+    top:100%; transform:translateY(-50%);
 }
 
 #menu-v li:hover > ul

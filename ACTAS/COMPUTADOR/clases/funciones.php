@@ -25,6 +25,12 @@ class funciones{
     private $serialP;
     private $pantalla;
     private $actaP;
+//-------marca pc----- 
+    private $marca;
+//-------marca pantalla----- 
+    private $marcaPant;
+//-------ticket----- 
+    private $numeroT;
 
      public function __construct(){
         $this->pdo = new config();
@@ -41,13 +47,13 @@ class funciones{
          private function Insertar(){
          $resu = array();
         $pdo = $this->pdo;
-        $sql = "INSERT INTO actas (USUARIO_ID, DE, ASUNTO, CREADO_POR) VALUES (:para, :de, :asunto, :creador)";
+        $sql = "INSERT INTO actas (USUARIO_ID, DE, ASUNTO, CREADO_POR, FECHA) VALUES (:para, :de, :asunto, :creador, NOW())";
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
             'para' => $this->PARA,
             'de' => $this->DE,
             'asunto' => $this->ASUNTO,
-            'creador' => $this->CREADO_POR
+            'creador' => $this->CREADO_POR,
             ]);
             return $result;
         }
@@ -75,7 +81,7 @@ class funciones{
           public function marcas_pant()
         {
         $pdo = $this->pdo;
-        $sql = "SELECT * FROM marcas_pant ORDER BY MARCA DESC";
+        $sql = "SELECT * FROM modelos_pant ORDER BY MARCA DESC";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
@@ -127,19 +133,36 @@ class funciones{
         $this->SERIAL= $serialP;
         $this->MODELO_PANT = $pantalla;
         $this->ACTA_ID = $actaP;
-        $result = $this->InsertarComputador();
+        $result = $this->InsertarPantalla();
         return $result;
     }
     //consulta sql para insertar nueva pantalla
      private function InsertarPantalla(){
         $resu = array();
         $pdo = $this->pdo;
-        $sql = "INSERT INTO pantallas (SERIAL,MODELO_PANT,ACTA_ID) VALUES (:serialp,:pantalla,:actaP)";
+        $sql = "INSERT INTO pantallas (SERIAL,MODELO_PANT,ACTA_ID) VALUES (:serialP,:pantalla,:actaP)";
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
             'serialP' => $this->SERIAL,
-            'pantalla' => $this->MODELO_PANT,
+            'pantalla' => $this->MODELO_PANT,   
             'actaP' => $this->ACTA_ID,
+            ]);
+            return $result;
+        }
+    //fin de consulta
+          public function anadirTicket($numeroT){
+        $this->NUMERO= $numeroT;
+        $result = $this->InsertarTicket();
+        return $result;
+    }
+    //consulta sql para insertar nueva pantalla
+     private function InsertarTicket(){
+        $resu = array();
+        $pdo = $this->pdo;
+        $sql = "INSERT INTO ticket (NUMERO,STATUS) VALUES (:numeroT,1)";
+        $query = $pdo->prepare($sql);
+        $result = $query->execute([//$result = $query->execute([
+            'numeroT' => $this->NUMERO,   
             ]);
             return $result;
         }
@@ -167,8 +190,42 @@ class funciones{
             ]);
             return $result;
         }
+        //recopilacion pafra insercion de marcas de pc
+        public function anadirMarcaPc($marca){
+        $this->MARCA = $marca;
+        $result = $this->insertarMarcaPc();
+        return $result;
+    } 
+        //insercion de marcas de pc
+         private function insertarMarcaPc(){
+         $resu = array();
+        $pdo = $this->pdo;
+        $sql = "INSERT INTO marcas_pc (MARCA) VALUES (:marca)";
+        $query = $pdo->prepare($sql);
+        $result = $query->execute([//$result = $query->execute([
+            'marca' => $this->MARCA,
+            ]);
+            return $result;
+        }
+        //recopilacion pafra insercion de marcas de pantalla
+        public function anadirMarcaPanta($marcaPant){
+        $this->MARCA = $marcaPant;
+        $result = $this->insertarMarcaPanta();
+        return $result;
+    } 
+        //insercion de marcas de pantalla
+         private function insertarMarcaPanta(){
+         $resu = array();
+        $pdo = $this->pdo;
+        $sql = "INSERT INTO modelos_pant (MARCA) VALUES (:marcaPant)";
+        $query = $pdo->prepare($sql);
+        $result = $query->execute([//$result = $query->execute([
+            'marcaPant' => $this->MARCA,
+            ]);
+            return $result;
+        }
 //fin de la insercion 
-
+//CONSULTA PARA LAS LISTAS
         public function select_persons(){
         $pdo = $this->pdo;
         $sql = "SELECT a.ID,u.NOMBRES,u.APELLIDOS ,a.DE,a.ASUNTO,m.marca FROM computadores c INNER JOIN actas a INNER JOIN marcas_pc m  INNER JOIN usuarios u ON c.ACTA_ID = a.ID AND c.MARCA_ID = m.ID AND a.USUARIO_ID = u.CEDULA ";
@@ -176,12 +233,28 @@ class funciones{
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
     }
+    public function select_pantallas(){
+        $pdo = $this->pdo;
+        $sql = "SELECT a.ID,u.NOMBRES,u.APELLIDOS ,a.DE,a.ASUNTO,m.MARCA FROM pantallas p INNER JOIN actas a INNER JOIN modelos_pant m INNER JOIN usuarios u ON p.ACTA_ID = a.ID AND p.MODELO_PANT = m.ID AND a.USUARIO_ID = u.CEDULA ";
+        $query = $pdo->query($sql);
+        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $queryResult;
+    }
+//FIN DE LAS CONSULTA
     //-----------ULTIMA ACTA GENERADA--------
     
 
     public function select_acta(){
         $pdo = $this->pdo;
         $sql = "SELECT MAX(ID) AS acta FROM actas";
+        $query = $pdo->query($sql);
+        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $queryResult;
+        
+    }
+    public function select_acta2(){
+        $pdo = $this->pdo;
+        $sql = "SELECT MAX(ID)+1 AS acta FROM actas";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
@@ -196,7 +269,15 @@ class funciones{
     }
     public function select_All($id){
         $pdo = $this->pdo;
-        $sql = "SELECT a.ID,u.NOMBRES,a.USUARIO_ID,u.APELLIDOS ,a.DE,a.ASUNTO,m.marca ,c.SERIAL, c.ACTIVO_FIJO,c.PROCESADOR,c.MEMORIA_RAM,c.SERIAL_CARGADOR FROM computadores c INNER JOIN actas a INNER JOIN marcas_pc m  INNER JOIN usuarios u ON c.ACTA_ID = a.ID AND c.MARCA_ID = m.ID AND  a.USUARIO_ID = u.CEDULA AND a.ID = $id";
+        $sql = "SELECT a.ID,a.FECHA,u.NOMBRES,a.USUARIO_ID,u.APELLIDOS ,a.DE,a.ASUNTO,m.marca ,c.SERIAL, c.ACTIVO_FIJO,c.PROCESADOR,c.MEMORIA_RAM,c.SERIAL_CARGADOR FROM computadores c INNER JOIN actas a INNER JOIN marcas_pc m  INNER JOIN usuarios u ON c.ACTA_ID = a.ID AND c.MARCA_ID = m.ID AND  a.USUARIO_ID = u.CEDULA AND a.ID = $id";
+        $prepared = $pdo->prepare($sql);
+        $resultQuery = $prepared->execute();
+        $result = $prepared->fetch(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function select_info_panta($id){
+        $pdo = $this->pdo;
+        $sql = "SELECT a.ID,a.FECHA,u.NOMBRES,a.USUARIO_ID,u.APELLIDOS ,a.DE,a.ASUNTO,m.MARCA ,p.SERIAL FROM pantallas p INNER JOIN actas a INNER JOIN modelos_pant m  INNER JOIN usuarios u ON p.ACTA_ID = a.ID AND p.MODELO_PANT = m.ID AND  a.USUARIO_ID = u.CEDULA AND a.ID = $id";
         $prepared = $pdo->prepare($sql);
         $resultQuery = $prepared->execute();
         $result = $prepared->fetch(\PDO::FETCH_ASSOC);

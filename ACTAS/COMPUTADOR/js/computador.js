@@ -28,9 +28,17 @@
         $("#titulo").html("Nueva acta computador");
         $( "#contenido" ).load("../ACTAS/COMPUTADOR/computador/persona.php");
     })
+    $("#contenido").on("click","button#nuevo_computador_lista",function(){
+        $("#titulo").html("Lista actas de computador");
+        $( "#contenido" ).load("../ACTAS/COMPUTADOR/computador/lista.php");
+    })
       $("#contenido").on("click","button#nueva_pantalla",function(){
-        $("#titulo").html("Nueva acta pantalla");
+        $("#titulo").html("Lista actas de pantalla");
         $( "#contenido" ).load("../ACTAS/COMPUTADOR/pantalla/persona.php");
+    })
+      $("#contenido").on("click","button#nueva_pantalla_lista",function(){
+        $("#titulo").html("Lista actas de pantalla");
+        $( "#contenido" ).load("../ACTAS/COMPUTADOR/pantalla/lista_pantalla.php");
     })
 
 

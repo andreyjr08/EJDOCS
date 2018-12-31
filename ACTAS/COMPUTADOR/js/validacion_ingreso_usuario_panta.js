@@ -1,5 +1,4 @@
 $(document).ready(function(e) {
-			alert("Debes ingresar una cedula valida");
 	
 	$("#btnEnviarU").click(function() {
 		 if( $("#cedula2").val().length < 8 ) {
@@ -24,7 +23,7 @@ $(document).ready(function(e) {
 				if (dataType.res == "si") {
 					alert(dataType.msj);
 					 $('.modal-backdrop').remove();
-					 $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/persona.php');
+					 $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/pantalla/persona.php');
 					 $('.btncerrar_nueva_acta_computador2').remove();
 				} else {
 					alert(dataType.msj);
