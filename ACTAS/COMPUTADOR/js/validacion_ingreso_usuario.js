@@ -24,7 +24,7 @@ $(document).ready(function(e) {
 				if (dataType.res == "si") {
 					alert(dataType.msj);
 					 $('.modal-backdrop').remove();
-					 $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/persona.php');
+					 $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/lista.php');
 					 $('.btncerrar_nueva_acta_computador2').remove();
 				} else {
 					alert(dataType.msj);

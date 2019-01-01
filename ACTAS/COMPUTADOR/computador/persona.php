@@ -11,7 +11,7 @@ session_start();
 
 ?>
 
-<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADO/js/validacionP.js" ></script>
+<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacionP.js" ></script>
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_ingreso_usuario.js" ></script>
 <div class="panel-body">
 <div class="box-header">
