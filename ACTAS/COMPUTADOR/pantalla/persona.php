@@ -21,7 +21,7 @@ session_start();
 <form id="frmDatosP" name="frmDatosP" method="post" action="../ACTAS/COMPUTADOR/procesos/insertarP.php">
 	<div class="col-ms-12" id="cargaDeDatos">
 		<div class="jumbotron">
-			<div class="col-xs-6 col-md-12 col-lg-12">
+			<div class="col-xs-12 col-md-12 col-lg-12">
 					<label>NUMERO</label>
 					<div class="input-group mb-3">
   						<input type="text" name="numero" id="numero" class="form-control" placeholder="Asunto" aria-label="Username" aria-describedby="basic-addon1" value="<?php foreach($result3 as $acta){echo $acta['acta'];}?>" disabled="disabled">
