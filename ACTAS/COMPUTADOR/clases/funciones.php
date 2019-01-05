@@ -65,7 +65,7 @@ class funciones{
         public function usuarios()
         {
         $pdo = $this->pdo;
-        $sql = "SELECT * FROM usuarios ORDER BY NOMBRES DESC";
+        $sql = "SELECT * FROM usuarios ORDER BY NOMBRES ASC";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
