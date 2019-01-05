@@ -91,7 +91,7 @@ class funciones{
     //--------------LISTA DEPARTAMENTOS
         public function departamentos(){
         $pdo = $this->pdo;
-        $sql = "SELECT *FROM departamentos ORDER BY NOMBRE DESC";
+        $sql = "SELECT *FROM departamentos ORDER BY NOMBRE ASC";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
