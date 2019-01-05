@@ -23,9 +23,8 @@ $(document).ready(function(e) {
 			  success: function(dataType) {
 				if (dataType.res == "si") {
 					alert(dataType.msj);
-					 $('.modal-backdrop').remove();
+					 document.getElementById("frmModal").reset();
 					 $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/lista.php');
-					 $('.btncerrar_nueva_acta_computador2').remove();
 				} else {
 					alert(dataType.msj);
 				}

@@ -21,7 +21,7 @@
 				<div class="input-group mb-3">
   					<input type="password" name="contra" class="form-control" placeholder="Contraseña" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
-				<input class="btn btn-primary col-sm-12 py-3" type="submit" >
+				<input class="btn btn-primary col-sm-12 py-3" type="submit" value="INGRESAR">
 			</div>
 		</div>
 		</div>

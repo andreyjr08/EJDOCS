@@ -10,33 +10,37 @@ session_start();
 ?>
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_pantalla.js" ></script>
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_marca_panta.js" ></script>
+<div class="jumbotron">
 <div class="panel-body">
 <form class="form-horizontal" id="frmDatos" name="frmDatos" method="post" action="../ACTAS/COMPUTADOR/procesos_pantalla/insertar_pantalla.php">
 	<div id="cargaDeDatos">
-		<div class="jumbotron">
-			<div class="col-ms-12">
-					<label>NUMERO</label>
-					<div class="input-group mb-3">
-  						<input type="text" name="acta" id="acta" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="<?php foreach($result2 as $acta){echo $acta['acta'];}?>">
-					</div>
+		
+			<div class="col-xs-12 col-md-12 col-lg-12">
+				<label>NUMERO</label>
+				<div class="input-group mb-3">
+  					<input type="text" name="acta" id="acta" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="<?php foreach($result2 as $acta){echo $acta['acta'];}?>" readonly="readonly">
+				</div>
 			</div>
-			<div class="col-lg-12">
-					<label>PANTALLA</label>
-						<div class="input-group mb-3">
-						  <select class="form-control dimension" id="inputGroupSelect01" name="pantalla" id="pantalla">
-						  	<option selected>Seleccionar</option>
+			<div class="col-xs-11 col-md-11 col-lg-11">
+				<label>PANTALLA</label>
+				<div class="input-group mb-3">
+					<select class="form-control dimension" id="inputGroupSelect01" name="pantalla" id="pantalla">
+						<option selected>Seleccionar</option>
 						  	<?php foreach($result as $pantalla){ ?>
                     			<option value="<?php echo $pantalla['ID']; ?>"><?php echo $pantalla['MARCA']; ?></option> 
     						<?php } ?>
-						  </select>
-						</div>
-																		<!---------BOTON DE MODAL-->
-<button type="button" class="btn btn-primary col-lg-1 h my-auto" data-toggle="modal" data-target="#myModalPant">
-  <i class="fas fa-user-plus fa-1x"></i>
-</button>
+					</select>
 				</div>
+			</div>															
+	<!---------BOTON DE MODAL-->
+			<div class="col-xs-1 col-md-1 col-lg-1">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalPant">
+  				<i class="fas fa-user-plus fa-1x"></i>
+				</button> 
+			</div>
+				
 		
-				<div class="col-ms-12">
+				<div class="col-xs-12 col-md-12 col-lg-12">
 					<label>SERIAL</label>
 					<div class="input-group mb-3">
   						<input type="text" name="serial" id="serial" class="form-control" placeholder="Serial" aria-label="Username" aria-describedby="basic-addon1">
@@ -46,10 +50,13 @@ session_start();
 				<!--<div class="col-ms-12">
 					<a href="../ACTAS/COMPUTADOR/procesos/prueba.php" class="btn btn-primary fas fa-angle-double-right fa-2x" type="submit" id="btnEnviar" value="SIGUIENTE"></a>
 				</div>-->
-				<div class="col-lg-12">
-					<input  type="submit" id="btnEnviar" name="">
-					<!--<a class="btn btn-primary fas fa-check-square fa-3x btn-responsive" 
-					type="submit" id="btnEnviarP"></a>-->
+				<div class="col-xs-12 col-md-12 col-lg-12">
+					<!--<input  type="submit" id="btnEnviar">
+					<a class="btn btn-primary btn-responsive" 
+					type="submit" id="btnEnviar"><i class="fas fa-check-square fa-5x btn btn-primary"></i></a>-->
+					<button class="btn btn-primary btn-lg-4 center-block" type="submit" id="btnEnviar" data-toggle="tooltip" title="Crear Documento">
+			           <i class="fas fa-check-square fa-3x"></i>
+			        </button>
 				</div>		
 		</div>		
 		
@@ -63,7 +70,7 @@ session_start();
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Crear Nuevo Usuario</h4>
+        <h4 class="modal-title">Crear Nuevo Modelo</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <!-- Modal body -->

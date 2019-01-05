@@ -172,12 +172,12 @@ class funciones{
      public function actualizarT($numeroTicket){
         $resu = array();
         $pdo = $this->pdo;
-        $sql = "UPDATE ticket SET STATUS =1 WHERE NUMERO= '.$numeroTicket.'";
+        $sql = "UPDATE ticket SET STATUS =0 WHERE ID= $numeroTicket";
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
      
             ]);
-            return $result;
+        return $result;
         }
 //---------ingresar un nuevo usuario
 //recopilacion de datos para ejecutar la insercion de un nuevo usuario
@@ -241,7 +241,7 @@ class funciones{
 //CONSULTA PARA LAS LISTAS
         public function select_persons(){
         $pdo = $this->pdo;
-        $sql = "SELECT a.ID,u.NOMBRES,u.APELLIDOS ,a.DE,a.ASUNTO,m.marca FROM computadores c INNER JOIN actas a INNER JOIN marcas_pc m  INNER JOIN usuarios u ON c.ACTA_ID = a.ID AND c.MARCA_ID = m.ID AND a.USUARIO_ID = u.CEDULA ";
+        $sql = "SELECT a.ID,u.NOMBRES,u.APELLIDOS ,a.DE,a.ASUNTO,m.marca FROM computadores c INNER JOIN actas a INNER JOIN marcas_pc m  INNER JOIN usuarios u ON c.ACTA_ID = a.ID AND c.MARCA_ID = m.ID AND a.USUARIO_ID = u.CEDULA ORDER BY a.ID DESC";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;

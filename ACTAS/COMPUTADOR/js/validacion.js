@@ -28,9 +28,10 @@ $(document).ready(function(e) {
 			  data: $("#frmDatos").serialize(),
 			  dataType: 'json',
 			  success: function(dataType) {
-				if (dataType.res == "si") {
+				if (dataType.res == "si") {	
 					alert(dataType.msj);
 					  $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/lista.php');
+					  window.location.reload();
 				} else {
 					alert(dataType.msj);
 				}

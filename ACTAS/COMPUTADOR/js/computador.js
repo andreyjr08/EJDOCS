@@ -40,5 +40,9 @@
         $("#titulo").html("Lista actas de pantalla");
         $( "#contenido" ).load("../ACTAS/COMPUTADOR/pantalla/lista_pantalla.php");
     })
+    $("#contenido").on("click","button#nuevo_ticket",function(){
+        $("#titulo").html("Lista Ticket");
+        $( "#contenido" ).load("../ACTAS/COMPUTADOR/ticket/ticket.php");
+    })
 
 

@@ -1,7 +1,7 @@
 
 <div class="row">
 	<div class="col-xs-4 col-md-4 col-lg-4">
-		<button class="btn btn-warning btn-lg-4" id="nuevo_computador_lista" data-toggle="tooltip" title="Gestion de ticket´s">
+		<button class="btn btn-warning btn-lg-4" id="nuevo_ticket" data-toggle="tooltip" title="Gestion de ticket´s">
            <i class="fas fa-ticket-alt fa-10x"></i>
         </button>
 	</div>

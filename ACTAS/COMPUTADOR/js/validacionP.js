@@ -11,8 +11,7 @@ $(document).ready(function(e) {
 			alert("Debes ingresar el asunto de la acta");
 			document.frmDatosP.asunto.focus();
 			return false;
-		}
-		 else {
+		} else {
 			$.ajax({
 			  url: "../ACTAS/COMPUTADOR/procesos/insertarP.php",
 			  type: 'post',

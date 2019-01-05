@@ -16,6 +16,7 @@ $(document).ready(function(e) {
 					alert(dataType.msj);
 					 $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/ticket/ticket.php');
 					 $('.adicionar').remove();
+					 document.getElementById("frmModal").reset();
 				} else {
 					alert(dataType.msj);
 				}

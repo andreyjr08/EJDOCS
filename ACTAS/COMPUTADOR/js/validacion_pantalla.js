@@ -15,6 +15,7 @@ $(document).ready(function(e) {
 				if (dataType.res == "si") {
 					alert(dataType.msj);
 					  $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/pantalla/lista_pantalla.php');
+					  window.location.reload();
 				} else {
 					alert(dataType.msj);
 				}

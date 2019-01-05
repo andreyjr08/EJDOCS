@@ -1,14 +1,13 @@
 <?php  
-if  (isset($_POST) && !empty($_POST)) {
 
-    $prueba =  $_POST['numeroTikect'];
+	$valor = $_GET['numero'];
+     
+	$variable= $valor;
+	$palabra1 = substr($variable,-5);
+	$palabra2 = substr($variable,-11,5);
 
-    echo" numeroTikect= ".$prueba;
-}else{
-
-echo "No llego nada wey";
-
-}
-
-
+	$numeroTicket= $palabra2."". $palabra1;
+	echo $numeroTicket;
 ?>
+
+

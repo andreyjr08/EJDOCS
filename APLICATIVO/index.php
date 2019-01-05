@@ -42,31 +42,47 @@
           <div id="header"> 
             <ul id="menu-v">
                 <div id="opciones">
-                <li><a href="../ACTAS/COMPUTADOR/inicio/inicio.php">Inicio</a></li>
-                <li><a href="../ACTAS/COMPUTADOR/ticket/ticket.php" >Tikect</a></li>
+                <li><a href="EJDOCS/APLICATIVO/index.php">Inicio</a></li>
                 </div>
+                <li><a href="#" >Tikect</a></li>
+                
                 <li><a href="#" class="arrow">Actas</a>
                     <ul>                
                       <div id="opciones">
                         <li><a href="../ACTAS/COMPUTADOR/computador/lista.php" role="button">Computador</a></li>
                         <li><a href="../ACTAS/COMPUTADOR/pantalla/lista_pantalla.php">Pantallas</a></li>
                         </div>
-                        <li><a href="#">Celular</a></li>
                     </ul>
                 </li>
 
             </ul>   
         </div>
         </div>
+        
 
 <!-- Muestra la pagina o llama la otra pagina por ajax para no redireccionar por url-->
     <div class="col-md-10 col-lg-10 col-xs-10">
-        <div id='oculto' style='display:none;' class="col-sm-12">
+        <div id='oculto'  class="col-sm-12">
             <div class="panel-group show col-sm-12" id="contenedor">
                 <div class="panel panel-primary">
                     <div class="panel-heading" id="titulo">Panel Principal</div>
                     <div class="panel-body">
                         <div class="form-group" id="contenido">
+                            <div class="col-xs-4 col-md-4 col-lg-4">
+        <button class="btn btn-warning btn-lg-4" id="nuevo_ticket_PROXIMO" data-toggle="tooltip" title="Disponible en pocos dias">
+           <i class="fas fa-ticket-alt fa-10x"></i>
+        </button>
+    </div>
+    <div class="col-xs-4 col-md-4 col-lg-4">
+        <button class="btn btn-warning btn-lg-4" id="nuevo_computador_lista" data-toggle="tooltip" title="Actas de computador">
+           <i class="fas fa-laptop fa-10x"></i>
+        </button>
+    </div>
+    <div class="col-xs-4 col-md-4 col-lg-4">
+        <button class="btn btn-warning btn-lg-4" id="nueva_pantalla_lista" data-toggle="tooltip" title="Actas de pantallas">
+           <i class="fas fa-tv fa-10x"></i>
+        </button>
+    </div>
                         </div>
                     </div>
                 </div>
