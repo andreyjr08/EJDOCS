@@ -3,7 +3,7 @@ namespace clases_pdo;
 class config extends \PDO{
     private $typeDB = 'mysql';
     private $host = 'localhost';
-    private $dbname = 'actas2.1';
+    private $dbname = 'actas2_1';
     private $userDB = 'root';
     private $passwordDB = '';
     
